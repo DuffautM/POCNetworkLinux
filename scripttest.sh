@@ -43,6 +43,8 @@ reloadApache="service apache2 reload"
 
 #Utilisation de la commande a2ensite pour créer le lien entre sites-availables et sites-enabled
 
+eval $reloadBind
+
 eval $a2ensite
 
 eval $reloadApache
