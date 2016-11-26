@@ -14,11 +14,11 @@ EndOfHtml
 
 #Création du fichier .conf pour le nouveau site.
 
-cat << EndOfFile > /etc/apache2/sites-available/$1.$2.fr.conf
+cat << EndOfFile > /etc/apache2/sites-available/$1.fr.conf
 
-<VitrtualHost $1.$2.fr>
+<VitrtualHost $1.fr>
 
-	ServerName $1.$2.fr
+	ServerName $1.fr
 
 	ServerAdmin webmaster@localhost
 	ServerPath "/var/www/$1/"
@@ -33,11 +33,8 @@ cat << EndOfFile > /etc/apache2/sites-available/$1.$2.fr.conf
 
 EndOfFile
 
-copyFile="cp /etc/apache2/sites-available/$1.$2.fr.conf /etc/apache2/sites-enabled/$1.$2.fr.conf"
-a2ensite="a2ensite $1.$2.fr.conf"
+a2ensite="a2ensite $1.fr.conf"
 reloadApache="service apache2 reload"
-
-eval $copyFile
 
 #Utilisation de la commande a2ensite pour créer le lien entre sites-availables et sites-enabled
 
