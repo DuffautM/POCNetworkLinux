@@ -12,6 +12,10 @@ cat << EndOfHtml > /var/www/$1/index.html
 
 EndOfHtml
 
+echo "$1	IN	CNAME	WSSYSCP1" >> /etc/bind/db.workshop.fr
+
+cat /etc/bind/db.workshop.fr
+
 #Création du fichier .conf pour le nouveau site.
 
 cat << EndOfFile > /etc/apache2/sites-available/$1.fr.conf
@@ -33,6 +37,7 @@ cat << EndOfFile > /etc/apache2/sites-available/$1.fr.conf
 
 EndOfFile
 
+reloadBind="service bind9 reload"
 a2ensite="a2ensite $1.fr.conf"
 reloadApache="service apache2 reload"
 
