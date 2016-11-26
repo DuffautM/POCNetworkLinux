@@ -20,7 +20,7 @@ cat /etc/bind/db.workshop.fr
 
 cat << EndOfFile > /etc/apache2/sites-available/$1.fr.conf
 
-<VitrtualHost $1.fr>
+<VirtualHost $1.fr>
 
 	ServerName $1.fr
 
